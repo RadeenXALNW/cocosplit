@@ -85,17 +85,16 @@ def main(args):
             print("Saved {} entries in {} and {} in {}".format(len(anns_train), args.train, len(anns_test), args.test))
             
         else:
-
-             X_train, X_test = train_test_split(images, train_size=args.split, random_state=42)
+            X_train, X_test = train_test_split(images, train_size=args.split, random_state=42)
 
             anns_train = filter_annotations(annotations, X_train)
             anns_test=filter_annotations(annotations, X_test)
-
+    
             save_coco(args.train, info, licenses, X_train, anns_train, categories)
             save_coco(args.test, info, licenses, X_test, anns_test, categories)
-
+    
             print("Saved {} entries in {} and {} in {}".format(len(anns_train), args.train, len(anns_test), args.test))
-            
+                
 
 
 if __name__ == "__main__":
