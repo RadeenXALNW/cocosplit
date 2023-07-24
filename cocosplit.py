@@ -68,7 +68,7 @@ def main(args):
     
             filtered_annotations =  funcy.lremove(lambda i: i['category_id'] not in annotation_categories  , annotations)
     
-            X_train, y_train, X_test, y_test = iterative_train_test_split(np.array([annotations]).T,np.array([ annotation_categories]).T, test_size = 1-args.split, random_state=42)
+            X_train, y_train, X_test, y_test = iterative_train_test_split(np.array([annotations]).T,np.array([ annotation_categories]).T, test_size = 1-args.split)
     
             img_train = filter_images(images, X_train.reshape(-1))
             img_test = filter_images(images, X_test.reshape(-1))
